@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Blog</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<nav class="top-bar" data-topbar role="navigation" style="height:50px;">
+			<ul class="title-area">
+				<li class="name">
+					<h4><%= link_to Blog, root_path, style: "color:black; padding-left: 20px; letter-spacing: 5px;" %></h4>
+				</li>
+			</ul>
+			<%if user_signed_in?%>
+                <ul class="right">
+                <li> <%=link_to 'Новая запись', new_post_path %> <li> 	
+				<li> <%=link_to 'Выйти' , destroy_user_session_path, method: :delete %> </li>
+			</ul>
+			<%else%>
+			<ul class="right">
+				<li> <%=link_to 'Войти' , new_user_session_path %> </li>
+				<li> <%=link_to 'Регистрация' , new_user_registration_path %> </li>
+			</ul>
+			<%end%>
+		</nav>
+		<%= yield %>
+	</body>
+</html>

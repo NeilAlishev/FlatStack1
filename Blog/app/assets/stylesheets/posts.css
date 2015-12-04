@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic);
+.post-update{
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+position: relative;
+top: 100px;
+width:500px;
+}
+.post-particular {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+position: relative;
+top: 100px;
+width:1000px;
+}
+.post-particular p {
+margin-top: 10px;
+border-top: thin solid #3399FF;
+border-bottom: thin solid #3399FF;
+padding-top:30px;
+padding-bottom:30px;
+}
+.post-particular h1{
+font-family: 'Lobster', cursive;
+color:#3399FF;
+}
+.comments{
+margin-top:50px;
+clear:both;
+float:left;
+}
+
+.comment{
+border-bottom:thin solid black;
+margin-top:50px;
+}
+
+body {
+background-color : #F8F8F8;
+}

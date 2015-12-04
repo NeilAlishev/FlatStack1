@@ -1,0 +1,14 @@
+<div class="container">
+<div class="post-update">
+<h1> Новая запись </h1>
+<%= form_for @post do |f| %>
+
+<%= f.label :name,'Название' %>
+<%= f.text_field :name%>
+<%= f.label :content,'Содержание' %>
+<%= f.text_area :content, style: 'height:140px;' %>
+
+<%= f.submit  value: 'Новая запись'%>
+<%end%>
+</div>
+</div>

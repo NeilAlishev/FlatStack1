@@ -1,0 +1,20 @@
+<div class="row medium-8 large-7 columns" style="margin-top:50px;">
+	<%@posts.each do |post|%>
+	<div class="blog-post">
+		<h3> <%=link_to post.name,post%> <small><%=post.updated_at.strftime("%d %B | %I:%M %p")%></small></h3>
+		<!--<img class="thumbnail" src="http://placehold.it/850x350">-->
+		<p><%=post.content%></p>
+		<div class="callout">
+			<ul class="menu simple">
+				<li><a href="#">Author: <%=post.user.email%> </a></li> <!--post.author-->
+				<li><a href="#">Comments: <%=post.comments.size%></a></li>
+			</ul>
+		</div>
+	</div>
+	<%end%>
+</div>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+$(document).foundation();
+</script>
