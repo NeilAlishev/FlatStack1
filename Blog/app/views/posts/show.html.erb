@@ -7,22 +7,25 @@
 	</span> <span style="float:right"><b>Автор:</b> <%=@post.user.email%>
 </span>
 <div class="comments">
-	<h3>Комментарии:</h3>
-	<%@comments.each do |comment|%>
-	<div class="comment" style="clear:both;"> 
-		<%= comment.content%>
+	<% unless @post.comments.size.zero?%>
+	<h3><%=link_to 'Показать комментарии', '#', id:'show-comments'%></h3>
+
+	<div class ="comments-section">
+		<div class="comments-content">
+	<%= render @comments %>
+</div>
 	</br>
-		<span style="float:right">Автор: <%= comment.user.email%></span>
-	</div>
-    <%end%>
-	<div class="comment-new">
-		<%=form_for :comment, url: post_comments_path(@post) do |f|%>
-		<div class="large-12 columns">
-			<%=f.label :content,'Ваш комментарий:', style: 'float:left;'%>
-			<%=f.text_area :content%>
-			<%=f.submit 'Отправить', style: 'float:right; margin:0px;', class: 'small button' %>
+</br>
+<%end%>
+		<div class="comment-new">
+			<%=form_for :comment, url: post_comments_path(@post), remote: true do |f|%>
+			<div class="large-12 columns">
+				<%=f.label :content,'Ваш комментарий:', style: 'float:left;'%>
+				<%=f.text_area :content%>
+				<%=f.submit 'Отправить', style: 'float:left; margin:0px;', class: 'small button' %>
+			</div>
+			<%end%>
 		</div>
-		<%end%>
 	</div>
 </div>
 </div>

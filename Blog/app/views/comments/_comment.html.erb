@@ -1,0 +1,10 @@
+<div class="comment-with-delete" data-id=<%=comment.id%>>
+<div class="comment">
+	<h5 style="float:left;"><%= comment.user.email%></h5>
+	<div style="clear:both;"></div>
+	<p><%= comment.content%></p>
+</div>
+<% if comment.user == current_user%>
+ <%= link_to 'Удалить', comment_path(id:comment), remote: true, method: :delete, style:'float:right; margin-right:20px;', data: {confirm:'Вы уверены?'}%>	
+<%end%>
+</div>
