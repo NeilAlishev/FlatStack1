@@ -7,16 +7,19 @@
 	</span> <span style="float:right"><b>Автор:</b> <%=@post.user.email%>
 </span>
 <div class="comments">
-	<% unless @post.comments.size.zero?%>
+	<% if !@post.comments.size.zero?%>
 	<h3><%=link_to 'Показать комментарии', '#', id:'show-comments'%></h3>
-
 	<div class ="comments-section">
 		<div class="comments-content">
-	<%= render @comments %>
-</div>
-	</br>
-</br>
-<%end%>
+			<%= render @comments %>
+		</div>
+		<%else%>
+		<div class="comments-content">
+		</div>
+		<%end%>
+		</br>
+		</br>
+		<% if user_signed_in? %>
 		<div class="comment-new">
 			<%=form_for :comment, url: post_comments_path(@post), remote: true do |f|%>
 			<div class="large-12 columns">
@@ -26,6 +29,7 @@
 			</div>
 			<%end%>
 		</div>
+		<%end%>
 	</div>
 </div>
 </div>
